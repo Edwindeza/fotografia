@@ -1,0 +1,1 @@
+document.getElementById('fecha_hoy').value= new Date().toDateInputValue();
