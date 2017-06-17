@@ -11,9 +11,9 @@
 				<h2>Sistema de gestión de archivos fotográficos</h2>
 					<h3>Bienvenido!</h3> <br>
 				<p>
-					Este sistema está hecho para mejorar la infraestructura organizacional de la empresa.
+					Este sistema está hecho para mejorar la infraestructura organizacional de su empresa.
 				</p>
-				<img class="imagen-inicio" src="app/img/inicio/fotografia.jpg" alt="">
+				<img class="imagen-inicio img-responsive" src="app/img/inicio/fotografia.jpg" alt="">
 			</div>
 		</div>
 	</div>
