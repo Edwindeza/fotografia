@@ -198,7 +198,7 @@
 					        <td>71834023</td>
 					        <td>ejdeza@gmail.com</td>
 					        <td>990117206</td>
-					        <td><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></td>
+					        <td><center><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
 						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
 						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
 						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
