@@ -137,6 +137,12 @@ button{
     padding: 10px;
     border-radius: 5px
 }
+#agregarServicio .modal-footer a{
+	color: #efb309 !important;
+    background-color: #171714;
+    padding: 10px;
+    border-radius: 5px
+}
 #buscarCliente .modal-footer a{
 	color: #efb309 !important;
     background-color: #171714;
@@ -174,9 +180,23 @@ button{
 	font-size: 25px;
 	text-align: center;
 }
+.modal a {
+	cursor: pointer;
+	text-decoration: none;
+}
+.btn_atras{
+	float: left;
+}
+.btn_siguiente{
+
+	float: right;
+}
 .buscador-resultado button{
 	border: 0;
 	background-color: white;
+}
+.buscador-resultado a{
+	cursor: pointer;
 }
 #myModal3 .modal-body select{
 	margin-top: 10px;
@@ -334,33 +354,60 @@ input[type="date"]{
     margin-right: 1px;
 }
 /*buscador clientes*/
-.buscador_clientes{
+.vista_clientes{
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
-.buscador_clientes .input-content p{
+.vista_clientes .input-content p{
 	font-weight: 600;
 }
-.buscador_clientes .input-content{
+.vista_clientes .input-content{
 	margin-bottom: 10px;
 }
-.buscador_clientes input{	
+.vista_clientes input{	
 	padding-top: 5px;
 	padding-bottom: 5px;
 	border-right: 0;
 	border-top:0;
 	border-left: 0;
 }
-.buscador_clientes button{
+.vista_clientes button{
 	border: 0;
 	background-color: black;
 	color: #efb309;
 }
-.buscador_clientes h1{
+.vista_clientes h1{
 	margin-top: 0;
 	padding-left: 15px;
 	padding-right: 15px;
 }
+
+
+.buscador_cliente a{
+	color: #efb309 !important;
+    background-color: #171714;
+    padding: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.buscador_cliente .tipo_doc_busqueda{
+	padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.buscar_nombre input{
+	margin-bottom: 39px;
+}
+
+
+
+
+
 
 /*footer*/
 .footer-espaciado{

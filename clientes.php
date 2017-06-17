@@ -5,7 +5,7 @@
 </head>
 <body>
 <?php include 'tpl/header.php'; ?>
-<div class="col-xs-12 buscador_clientes">
+<div class="col-xs-12 vista_clientes">
 
 
 
@@ -105,8 +105,8 @@
 	          	<br><br>
 	        </div>
 	        <div class="modal-footer">
-	          <button type="button" class="btn btn-default" data-dismiss="modal">Atrás</button>
-	          <button >Siguiente</button>
+	          <a data-dismiss="modal" class="btn_atras">Atrás</a>
+	          <a class="btn_siguiente" href="servicios.php">Siguiente</a>
 	          
 	        </div>
 	      </div>
@@ -135,7 +135,7 @@
 	          		</div>
 					<div class=" col-xs-12 multiselec_service ">
 						<div class="col-sm-6 col-xs-12">
-							<p>Desde: <input type="date" id="fecha_hoy" min="2017-06-06" value="<?php date() ?>"/></p>
+							<p>Desde: <input type="date" id="fecha_hoy" min="2017-06-06" value=""/></p>
 
 						</div>
 						<div class="col-sm-6 col-xs-12 div2_services">
@@ -147,8 +147,8 @@
 	          	<br><br>
 	        </div>
 	        <div class="modal-footer">
-	          <a data-dismiss="modal">Atrás</a>
-	          <a class="buscar_" href="buscar.php">Siguiente</a>
+	          <a data-dismiss="modal" class="btn_atras">Atrás</a>
+	          <a class="btn_siguiente" href="buscar.php">Siguiente</a>
 	          
 	        </div>
 	      </div>
@@ -158,16 +158,23 @@
 	<div class="container sinpa">
 		<h1>Buscador de Clientes</h1>
 		<br>
-		<form action="">
-			<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
+		<form action="" class="buscador_cliente">
+			<div class=" col-xs-12 col-md-6 input-content sinpa_sm buscar_nombre">
 				<p>Buscar por Nombre</p>
-				<input name="nombre" id="nombre" type="text" class="col-xs-12 col-md-8" placeholder="Introduce Nombre completo">
-				<button class="col-xs-12 col-md-2 col-md-offset-1">Buscar</button>
+				<input name="nombre" id="nombre" type="text" class="col-xs-12 " placeholder="Introduce Nombre completo">
+				<a class="col-xs-12">Buscar</a>
 			</div>
 			<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
+
 				<p>Buscar por N° Documento</p>
-				<input name="dni" id="dni_cliente2" type="text" maxlength="16" class="col-xs-12 col-md-8" placeholder="Introduce número de Documento">
-				<button class="col-xs-12 col-md-2 col-md-offset-1">Buscar</button>
+				<select class="col-xs-12 tipo_doc_busqueda">
+					<option value="0">Seleccionar Documento</option>
+					<option value="1">DNI</option>
+					<option value="2">RUC</option>
+					<option value="3">PTP</option>
+				</select>
+				<input name="dni" id="dni_cliente2" type="text" maxlength="16" class="col-xs-12" placeholder="Introduce número de Documento">
+				<a class="col-xs-12">Buscar</a>
 			</div>
 		</form>
 	</div>	

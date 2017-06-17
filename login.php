@@ -17,7 +17,7 @@
       // If result matched $myusername and $mypassword, table row must be 1 row
 		
       if($login_password == $mypassword) {
-         header("location: inicio.php");
+         header("location: clientes.php");
       }else {
          $error = "Your Login Name or Password is invalid";
       }

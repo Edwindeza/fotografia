@@ -31,7 +31,6 @@ switch (basename($_SERVER['PHP_SELF'])) {
         </div>  
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a <?php echo $ini ?> href="inicio.php">Inicio</a></li>
             <li><a <?php echo $admi ?> href="clientes.php"> Clientes</a></li>
             <li><a <?php echo $admi ?> href="Login.php"> Cerrar Sesión</a></li>
             <!--li><a <?php echo $reg ?> href="cliente.php">Clientes</a></li-->
