@@ -7,6 +7,10 @@
 <?php include 'tpl/header.php'; ?>
 	<div class="col-xs-12 buscador_clientes">
 
+<?php
+$v1 = @$_POST['i_nombres_completos'];
+$v2 = @$_POST['i_dni_cliente'];
+?>
 
 
 	<div class="container">
@@ -15,20 +19,12 @@
 			<h1>Administrar Servicio</h1>
 			<form action="">
 				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
-					<p class="sinpa col-md-3 col-xs-12">Nombres</p>
-					<input name="nombre" id="nombre" type="text" disabled="true" value="Edwin Junior" class="col-xs-12 col-md-9" >
+					<p class="sinpa col-md-3 col-xs-12">Nombres completos</p>
+					<input name="nombre" id="nombre" type="text" readonly value="<?php echo $v1; ?>" class="col-xs-12 col-md-9" >
 				</div>
 				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
-					<p class="sinpa col-md-3 col-xs-12">Apellido Paterno</p>
-					<input name="nombre" id="nombre" type="text" disabled="true" value="Deza" class="col-xs-12 col-md-9" >
-				</div>
-				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
-					<p class="sinpa col-md-3 col-xs-12">Apellido Materno</p>
-					<input name="nombre" id="nombre" type="text" disabled="true" value="Culque" class="col-xs-12 col-md-9" >
-				</div>
-				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
-					<p class="sinpa col-md-3 col-xs-12">DNI</p>
-					<input name="dni" id="dni" type="text" disabled="true" value="71834023" class="col-xs-12 col-md-9" >
+					<p class="sinpa col-md-3 col-xs-12">N° documento</p>
+					<input name="dni" id="dni" type="text" readonly value="<?php echo $v2; ?>" class="col-xs-12 col-md-9" >
 				</div>
 				<div class=" col-xs-12 col-md-6 multiselec_service ">
 					<select id="tipo" name="tipo"  class="col-xs-12">

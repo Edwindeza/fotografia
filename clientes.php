@@ -11,7 +11,7 @@
  	include("models/config.php");
    	session_start();
     ?>
-	<div class="container">
+	<div class="container" id="registrarCliente">
 		<button type="button" class="Registrar_usuario btn btn-info1" data-toggle="modal" data-target="#registrar_cliente">Registrar Nuevo Cliente</button>
 		<!--button type="button" class="btn btn-info btn-lg col-md-3 col-xs-12" data-toggle="modal" data-target="#registrar_cliente2">Modificar Cliente</button-->
 		<!-- Modal -->
@@ -25,18 +25,18 @@
 			          <h1 class="modal-title"><b>Registrar nuevo cliente</b></h1>
 		        	</div>
 		        	<div class="modal-body">
-			         <form action="" style="padding-bottom: 40px;">
+			         <form action="insertar.php" method="POST" style="padding-bottom: 40px;">
 						<div class=" col-xs-12 col-md-12 input-content sinpa_sm">
 							<h4 style="float: left;" class="col-md-5"><b>Nombres </b><span>:</span></h4>
-							<input name="" class="col-md-6" id="nombres_completos" style="float: left;" cols="30" rows="1">
+							<input name="nombres" class="col-md-6" id="nombres" style="float: left;" cols="30" rows="1">
 						</div>
 						<div class=" col-xs-12 col-md-12 input-content sinpa_sm">
 							<h4 style="float: left;" class="col-md-5"><b>Apellido Paterno </b><span>:</span></h4>
-							<input name="" class="col-md-6" id="nombres_completos" style="float: left;" cols="30" rows="1">
+							<input name="ape_paterno" class="col-md-6" id="ape_paterno" style="float: left;" cols="30" rows="1">
 						</div>
 						<div class=" col-xs-12 col-md-12 input-content sinpa_sm">
 							<h4 style="float: left;" class="col-md-5"><b>Apellido Materno </b><span>:</span></h4>
-							<input name="" class="col-md-6" id="nombres_completos" style="float: left;" cols="30" rows="1">
+							<input name="ape_materno" class="col-md-6" id="ape_materno" style="float: left;" cols="30" rows="1">
 						</div>
 						<div class=" col-xs-12 col-md-12 input-content sinpa_sm" >
 							<h4 style="float: left;" class="col-md-5"><b>Tipo de Documento </b><span>:</span></h4>
@@ -55,11 +55,11 @@
 						</div>
 						<div class=" col-xs-12 col-md-12 input-content sinpa_sm" >
 							<h4 style="float: left;" class="col-md-5"><b>N° Documento </b><span>:</span></h4>
-							<input type="text" class="col-md-6"  maxlength=506" name="" style="float: left;" id="num_documento" rows="1">
+							<input type="text" class="col-md-6"  maxlength=506" name="num_documento" style="float: left;" id="num_documento" rows="1">
 						</div>
 						<div class=" col-xs-12 col-md-12 input-content sinpa_sm" >
 							<h4 style="float: left;" class="col-md-5"><b>Celular </b><span>:</span></h4>
-							<input type="text" class="col-md-6"  maxlength="20" name="" style="float: left;" id="num_documento" rows="1">
+							<input type="text" class="col-md-6"  maxlength="20" name="num_celular" style="float: left;" id="num_celular" rows="1">
 						</div>
 						<!--div class=" col-xs-12 col-md-6 input-content sinpa_sm">
 							<div class="dropdown">
@@ -72,11 +72,12 @@
 							  </ul>
 							</div>		
 						</div-->
+						<input type="submit" name="registrar_usuario">
 					</form>
 					<br><br><br><br><br>
 			        </div>
 			        <div class="modal-footer">
-			          <input type="" name="registrar_usuario"> 
+			           
 			        </div>
 		      	</div>
 		   	</div>
@@ -90,15 +91,15 @@
 	          <h1 class="modal-title">Agregar un Servicio</h1>
 	        </div>
 	        <div class="modal-body">
-	          	<form class="col-xs-12">
+	          	<form class="col-xs-12" method="POST" action="servicios.php">
 	          		<div class="col-xs-12 agregarServicio_info sinpa">
 	          			<div class=" col-xs-12 col-md-6 ">
 							<h4><b>Nombres Completos</b></h4>
-							<input class="col-xs-12" name="" readonly id="nombres_completos" cols="30" rows="1" />
+							<input class="col-xs-12" readonly name="i_nombres_completos" id="i_nombres_completos" cols="30" rows="1" />
 						</div>
 						<div class=" col-xs-12 col-md-6 input-content ">
 							<h4><b>Documento de identidad</b></h4>
-							<input class="col-xs-12" type="text" disabled="true" maxlength="16" name="" id="dni_cliente" rows="1" value="71834023"/>
+							<input class="col-xs-12" type="text" readonly maxlength="16" name="i_dni_cliente" id="i_dni_cliente" rows="1" />
 						</div>
 	          		</div>
 					<div class=" col-xs-12 multiselec_service ">
@@ -115,18 +116,18 @@
 					     	?>
 						</select>
 					</div>
+					<a data-dismiss="modal" class="btn_atras">Atrás</a>
+	         		<input class="btn_siguiente" type="submit" value="Siguiente">
 				</form>
 	          	<br><br>
 	        </div>
 	        <div class="modal-footer">
-	          <a data-dismiss="modal" class="btn_atras">Atrás</a>
-	          <a class="btn_siguiente" href="servicios.php">Siguiente</a>
+	          
 	          
 	        </div>
 	      </div>
 	    </div>
 	  </div>
-
 
 	<div class="modal fade" id="buscarCliente" role="dialog">
 	    <div class="modal-dialog">
@@ -136,33 +137,33 @@
 	          <h1 class="modal-title">Introduzca Intervalos de Fecha</h1>
 	        </div>
 	        <div class="modal-body">
-	          	<form class="col-xs-12">
+	          	<form class="col-xs-12" method="POST" action="buscar.php">
 	          		<div class="col-xs-12 agregarServicio_info sinpa">
 	          			<div class=" col-xs-12 col-md-6 input-content ">
 							<h4><b>Nombres Completos</b></h4>
-							<input class="col-xs-12" name="" disabled="true" id="nombres_completos" cols="30" rows="1" value="Edwin Junior Deza Culque"/>
+							<input class="col-xs-12" readonly name="s_nombres_completos" id="s_nombres_completos" cols="30" rows="1" value="Edwin Junior Deza Culque"/>
 						</div>
 						<div class=" col-xs-12 col-md-6 input-content ">
 							<h4><b>N° Documento</b></h4>
-							<input class="col-xs-12" type="text" disabled="true" maxlength="16" name="" id="dni_cliente" rows="1" value="71834023"/>
+							<input class="col-xs-12" type="text" readonly maxlength="16" name="s_dni_cliente" id="s_dni_cliente" rows="1" value="71834023"/>
 						</div>
 	          		</div>
 					<div class=" col-xs-12 multiselec_service ">
 						<div class="col-sm-6 col-xs-12">
-							<p>Desde: <input type="date" id="fecha_hoy" min="2017-06-06" value=""/></p>
+							<p>Desde: <input type="date" id="s_fecha_ahora" name="s_fecha_ahora" min="2017-06-06" value=""/></p>
 
 						</div>
 						<div class="col-sm-6 col-xs-12 div2_services">
-							<p>Hasta: <input type="date"/></p>
+							<p>Hasta: <input type="date" id="s_fecha_luego" name="s_fecha_luego" value=""/></p>
 						</div>
 						
 					</div>
+					<a data-dismiss="modal" class="btn_atras">Atrás</a>
+	         		<input class="btn_siguiente" type="submit" value="Siguiente">
 				</form>
 	          	<br><br>
 	        </div>
 	        <div class="modal-footer">
-	          <a data-dismiss="modal" class="btn_atras">Atrás</a>
-	          <a class="btn_siguiente" href="buscar.php">Siguiente</a>
 	          
 	        </div>
 	      </div>
@@ -198,7 +199,6 @@
 			</div>
 		</form>
 	</div>	
-
 
 	<div class="buscador-resultado">
 		<div class="container ">
@@ -251,7 +251,6 @@
 									} 
 								}
 				    		}
-				    		echo $sql;
 						    $result = mysqli_query($db,$sql);
 
 		   					while($row = mysqli_fetch_array($result)) {
@@ -263,8 +262,8 @@
 					        <td><?php echo $row["direccion"];?></td>
 					        <td><?php echo $row["telefono"];?></td>
 					        <td><?php echo $row["email1"];?></td>
-					        <td><center><a  data-toggle="modal" class="abrir-reg" nombre="<?php echo $row["nombres"]." ".$row["ap_paterno"]." ".$row["ap_materno"];?>"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
-						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
+					        <td><center><a  data-toggle="modal" class="abrir-reg" documento="<?php echo $row["documento"];?>" nombre="<?php echo $row["nombres"]." ".$row["ap_paterno"]." ".$row["ap_materno"];?>"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
+						    <td><center><a  data-toggle="modal" class="abrir-search" documento="<?php echo $row["documento"];?>" nombre="<?php echo $row["nombres"]." ".$row["ap_paterno"]." ".$row["ap_materno"];?>"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
 						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
 						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
 						</tr>
@@ -285,11 +284,49 @@
 
 <script language="javascript">
 	$(document).ready(function(){
+
+		$("#nombres").keypress(function(e){
+			var tecla = document.all?tecla=e.keyCode:tecla=e.which;
+			return ((tecla>64 && tecla<91)|| (tecla>96 && tecla<123));
+		});
+		$("#ape_paterno").keypress(function(e){
+			var tecla = document.all?tecla=e.keyCode:tecla=e.which;
+			return ((tecla>64 && tecla<91)|| (tecla>96 && tecla<123));
+		});
+		$("#ape_materno").keypress(function(e){
+			var tecla = document.all?tecla=e.keyCode:tecla=e.which;
+			return ((tecla>64 && tecla<91)|| (tecla>96 && tecla<123));
+		});
+		$("#num_documento").keypress(function(e){
+			var tecla = document.all?tecla=e.keyCode:tecla=e.which;
+			return ((tecla>47 && tecla<58)|| tecla==46);
+		});
+		$("#num_celular").keypress(function(e){
+			var tecla = document.all?tecla=e.keyCode:tecla=e.which;
+			return ((tecla>47 && tecla<58)|| tecla==46);
+		});
+
+
+
 		$('.abrir-reg').click(function(e){
 			var _this = $(this);
 			var _nombre = _this.attr('nombre');
+			var _documento = _this.attr('documento');
 			var _modal = $('#agregarServicio');
-			$('#nombres_completos').val(_nombre); 
+			$('#i_nombres_completos').val(_nombre); 
+			$('#i_dni_cliente').val(_documento); 
+			console.log(_nombre);
+			_modal.modal('show');
+		});
+
+
+		$('.abrir-search').click(function(e){
+			var _this = $(this);
+			var _nombre = _this.attr('nombre');
+			var _documento = _this.attr('documento');
+			var _modal = $('#buscarCliente');
+			$('#s_nombres_completos').val(_nombre); 
+			$('#s_dni_cliente').val(_documento); 
 			console.log(_nombre);
 			_modal.modal('show');
 		});
