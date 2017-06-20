@@ -383,7 +383,7 @@ input[type="date"]{
 }
 
 
-.buscador_cliente a{
+.buscador_cliente input.buscador_cliente_submit{
 	color: #efb309 !important;
     background-color: #171714;
     padding: 6px;

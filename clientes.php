@@ -7,8 +7,10 @@
 <?php include 'tpl/header.php'; ?>
 <div class="col-xs-12 vista_clientes">
 
-
-
+<?php 
+ 	include("models/config.php");
+   	session_start();
+    ?>
 	<div class="container">
 		<button type="button" class="Registrar_usuario btn btn-info1" data-toggle="modal" data-target="#registrar_cliente">Registrar Nuevo Cliente</button>
 		<!--button type="button" class="btn btn-info btn-lg col-md-3 col-xs-12" data-toggle="modal" data-target="#registrar_cliente2">Modificar Cliente</button-->
@@ -40,9 +42,15 @@
 							<h4 style="float: left;" class="col-md-5"><b>Tipo de Documento </b><span>:</span></h4>
 							<select class="col-md-6" id="tipo_documento">
 								<option value="0">Seleccionar Documento</option>
-								<option value="1">DNI</option>
-								<option value="2">RUC</option>
-								<option value="3">PTP</option>
+								<?php 
+							    	$sql="SELECT * FROM tipo_docs";
+							    	$result = mysqli_query($db,$sql);
+			   						while($row = mysqli_fetch_array($result)) {
+								?>	   
+			   					<option value="<?php echo $row["id"];?>"><?php echo $row["nombre"]; ?></option>
+								<?php    				
+			   						}
+						     	?>
 							</select>
 						</div>
 						<div class=" col-xs-12 col-md-12 input-content sinpa_sm" >
@@ -68,7 +76,7 @@
 					<br><br><br><br><br>
 			        </div>
 			        <div class="modal-footer">
-			          <a href="#">Registrar</a>
+			          <input type="" name="registrar_usuario"> 
 			        </div>
 		      	</div>
 		   	</div>
@@ -79,26 +87,32 @@
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h1 class="modal-title">Agregar Servicio al cliente</h1>
+	          <h1 class="modal-title">Agregar un Servicio</h1>
 	        </div>
 	        <div class="modal-body">
 	          	<form class="col-xs-12">
 	          		<div class="col-xs-12 agregarServicio_info sinpa">
-	          			<div class=" col-xs-12 col-md-6 input-content ">
+	          			<div class=" col-xs-12 col-md-6 ">
 							<h4><b>Nombres Completos</b></h4>
-							<input class="col-xs-12" name="" disabled="true" id="nombres_completos" cols="30" rows="1" value="Edwin Junior Deza Culque"/>
+							<input class="col-xs-12" name="" readonly id="nombres_completos" cols="30" rows="1" />
 						</div>
 						<div class=" col-xs-12 col-md-6 input-content ">
-							<h4><b>Tipo de Servicio</b></h4>
+							<h4><b>Documento de identidad</b></h4>
 							<input class="col-xs-12" type="text" disabled="true" maxlength="16" name="" id="dni_cliente" rows="1" value="71834023"/>
 						</div>
 	          		</div>
 					<div class=" col-xs-12 multiselec_service ">
 						<select id="tipo" name="tipo"  class="col-xs-12">
-						    <option value="bodas">-- Selecciones el tipo de Servicio --</option>
-						    <option value="bodas">Fotografía</option>
-						    <option value="otros">Fotografía Pasaporte</option>
-						    <option value="otros">Sesión Fotográfica</option>
+						    <option value="bodas">-- Seleccione el tipo de Servicio --</option>
+						    <?php 
+						    	$sql="SELECT * FROM tipo_servicios";
+						    	$result = mysqli_query($db,$sql);
+		   						while($row = mysqli_fetch_array( $result)) {
+							?>	   
+		   					<option value="<?php echo $row["id"];?>"><?php echo $row["nombre"]; ?></option>
+							<?php    				
+		   						}
+					     	?>
 						</select>
 					</div>
 				</form>
@@ -158,23 +172,29 @@
 	<div class="container sinpa">
 		<h1>Buscador de Clientes</h1>
 		<br>
-		<form action="" class="buscador_cliente">
+		<form action="" method="POST" class="buscador_cliente">
 			<div class=" col-xs-12 col-md-6 input-content sinpa_sm buscar_nombre">
 				<p>Buscar por Nombre</p>
 				<input name="nombre" id="nombre" type="text" class="col-xs-12 " placeholder="Introduce Nombre completo">
-				<a class="col-xs-12">Buscar</a>
+				<input type="submit" class="buscador_cliente_submit col-xs-12" value="Buscar">
 			</div>
 			<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
 
-				<p>Buscar por N° Documento</p>
-				<select class="col-xs-12 tipo_doc_busqueda">
+				<p>Buscar por N° Documento</p>				
+				<select name="tipo_doc" class="col-xs-12 tipo_doc_busqueda">
 					<option value="0">Seleccionar Documento</option>
-					<option value="1">DNI</option>
-					<option value="2">RUC</option>
-					<option value="3">PTP</option>
+					<?php 
+				    	$sql="SELECT * FROM tipo_docs";
+				    	$result = mysqli_query($db,$sql);
+   						while($row = mysqli_fetch_array($result)) {
+						?>	   
+   						<option value="<?php echo $row["id"];?>"><?php echo $row["nombre"]; ?></option>
+						<?php    					
+   							}
+			     		?>
 				</select>
-				<input name="dni" id="dni_cliente2" type="text" maxlength="16" class="col-xs-12" placeholder="Introduce número de Documento">
-				<a class="col-xs-12">Buscar</a>
+				<input name="num_documento" id="dni_cliente2" type="text" maxlength="16" class="col-xs-12" placeholder="Introduce número de Documento">
+				<input type="submit" class="buscador_cliente_submit col-xs-12" value="Buscar">
 			</div>
 		</form>
 	</div>	
@@ -192,6 +212,7 @@
 					        <th><b>N° Documento</b></th>
 					        <th><b>Correo electrónico</b></th>
 					        <th><b>Teléfono</b></th>
+					        <th><b>E-mail</b></th>
 					        <td width="50px"><b>Agregar Servicio</b></td>
 					        <td width="50px"><b>Buscar</b></td>
 					        <td width="50px"><b>Modificar</b></td>
@@ -199,94 +220,57 @@
 					    </tr>
 					</thead>
 				    <tbody>
+				    	<?php 
+				    		$a=1;
+				    		$sql="SELECT * FROM cliente where 1 ";
+				    		$_doc=@$_POST["tipo_doc"];
+				    		if($_doc)$sql.="and tipo_docs_id = '".$_doc."' ";
+
+				    		$_doc=@$_POST["num_documento"];
+
+				    		if($_doc)$sql.="and documento = '".$_doc."' ";
+						    $result = mysqli_query($db,$sql);
+
+				    		$_nombre=@$_POST["nombre"];
+				    		if($_nombre){
+				    			$_var = preg_replace(
+							        array("/ +/","/\t+/","/\n+/","/\r+/"),
+							        array(" ","","",""),
+							        $_nombre
+							    );
+				    			$_var = explode(" ",trim($_var));
+								if(is_array($_var)){
+									if( ($_size =count($_var))>0 ){
+									    $sql.= " AND (0  ";
+										foreach($_var AS $key=>$value){
+											$sql.= " OR nombres like '%".$value."%' ";
+											$sql.= " OR ap_paterno like '%".$value."%' ";
+											$sql.= " OR ap_materno like '%".$value."%' ";
+										}
+										$sql.= " ) ";
+									} 
+								}
+				    		}
+				    		echo $sql;
+						    $result = mysqli_query($db,$sql);
+
+		   					while($row = mysqli_fetch_array($result)) {
+		   				?>
 					    <tr>
-					        <td>1</td>
-					        <td>Edwin Junior Deza Culque</td>
-					        <td>71834023</td>
-					        <td>ejdeza@gmail.com</td>
-					        <td>990117206</td>
-					        <td><center><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
+					        <td><?php echo $a++; ?></td>
+					        <td><?php echo $row["nombres"]." ".$row["ap_paterno"]." ".$row["ap_materno"];?></td>
+					        <td><?php echo $row["documento"];?></td>
+					        <td><?php echo $row["direccion"];?></td>
+					        <td><?php echo $row["telefono"];?></td>
+					        <td><?php echo $row["email1"];?></td>
+					        <td><center><a  data-toggle="modal" class="abrir-reg" nombre="<?php echo $row["nombres"]." ".$row["ap_paterno"]." ".$row["ap_materno"];?>"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
 						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
 						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
 						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
 						</tr>
-						<tr>
-						    <td>2</td>
-						    <td>Edwin Junior Deza Culque</td>
-						    <td>71834023</td>
-						    <td>ejdeza@gmail.com</td>
-						    <td>990117206</td>
-						    <td><center><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
-						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
-						</tr>
-						<tr>
-						    <td>3</td>
-						    <td>Edwin Junior Deza Culque</td>
-						    <td>71834023</td>
-						    <td>ejdeza@gmail.com</td>
-						    <td>990117206</td>
-						    <td><center><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
-						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
-						</tr>
-						<tr>
-						    <td>3</td>
-						    <td>Edwin Junior Deza Culque</td>
-						    <td>71834023</td>
-						    <td>ejdeza@gmail.com</td>
-						    <td>990117206</td>
-						    <td><center><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
-						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
-						</tr>
-						<tr>
-						    <td>3</td>
-						    <td>Edwin Junior Deza Culque</td>
-						    <td>71834023</td>
-						    <td>ejdeza@gmail.com</td>
-						    <td>990117206</td>
-						    <td><center><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
-						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
-						</tr>
-						<tr>
-						    <td>3</td>
-						    <td>Edwin Junior Deza Culque</td>
-						    <td>71834023</td>
-						    <td>ejdeza@gmail.com</td>
-						    <td>990117206</td>
-						    <td><center><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
-						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
-						</tr>
-						<tr>
-						    <td>3</td>
-						    <td>Edwin Junior Deza Culque</td>
-						    <td>71834023</td>
-						    <td>ejdeza@gmail.com</td>
-						    <td>990117206</td>
-						    <td><center><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
-						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
-						</tr>
-						<tr>
-						    <td>3</td>
-						    <td>Edwin Junior Deza Culque</td>
-						    <td>71834023</td>
-						    <td>ejdeza@gmail.com</td>
-						    <td>990117206</td>
-						    <td><center><a  data-toggle="modal" data-target="#agregarServicio"><img src="app/img/inicio/agregar.png" alt=""></a></center></td>
-						    <td><center><a  data-toggle="modal" data-target="#buscarCliente"><img src="app/img/inicio/lupa.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/editar.png" alt=""></a></center></td>
-						    <td><center><a href="#"><img src="app/img/inicio/borrar.png" alt=""></a></center></td>
-						</tr>
+		   				<?php 
+		   					}
+				    	?>
 					</tbody>
 				</table>			
 			</div>
@@ -301,6 +285,15 @@
 
 <script language="javascript">
 	$(document).ready(function(){
+		$('.abrir-reg').click(function(e){
+			var _this = $(this);
+			var _nombre = _this.attr('nombre');
+			var _modal = $('#agregarServicio');
+			$('#nombres_completos').val(_nombre); 
+			console.log(_nombre);
+			_modal.modal('show');
+		});
+
 		$("#dni_cliente").keypress(function(e){
 			var tecla = document.all?tecla=e.keyCode:tecla=e.which;
 			return ((tecla>47 && tecla<58)||tecla==46);
@@ -317,5 +310,7 @@
         	myFunction.document.open(".modal-body");
     	});
 	});
+
+
 </script>
 

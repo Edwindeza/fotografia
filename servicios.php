@@ -42,10 +42,6 @@
 					    <option value="otros">7</option>
 					</select>
 				</div>
-				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
-					<p class="sinpa col-md-3 col-xs-12">Ruta</p>
-					<input name="dni" id="dni" type="text" disabled="true" value="C://fotografias" class="col-xs-12 col-md-9" >
-				</div>
 			</form>
 		</div>
 	</div>
