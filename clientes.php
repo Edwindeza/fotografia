@@ -101,21 +101,23 @@
 							<h4><b>Documento de identidad</b></h4>
 							<input class="col-xs-12" type="text" readonly maxlength="16" name="i_dni_cliente" id="i_dni_cliente" rows="1" />
 						</div>
-	          		</div>
+	          		</div> <!-- Falta enviar el dato del Opcion ( El value) -->
 					<div class=" col-xs-12 multiselec_service ">
-						<select id="tipo" name="tipo"  class="col-xs-12">
-						    <option value="bodas">-- Seleccione el tipo de Servicio --</option>
+						<select id="i_tipo_documento" name="tipo"  class="col-xs-12">
+						    <option value="selecione_tipo_servicio">-- Seleccione el tipo de Servicio --</option>
 						    <?php 
+						    	$
 						    	$sql="SELECT * FROM tipo_servicios";
 						    	$result = mysqli_query($db,$sql);
 		   						while($row = mysqli_fetch_array( $result)) {
 							?>	   
-		   					<option value="<?php echo $row["id"];?>"><?php echo $row["nombre"]; ?></option>
+		   					<option id="" value="<?php echo $row["id"];?>"><?php echo $row["nombre"]; ?></option>
 							<?php    				
 		   						}
 					     	?>
 						</select>
 					</div>
+
 					<a data-dismiss="modal" class="btn_atras">Atrás</a>
 	         		<input class="btn_siguiente" type="submit" value="Siguiente">
 				</form>

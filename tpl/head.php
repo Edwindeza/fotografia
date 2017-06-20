@@ -12,10 +12,14 @@
   <link rel="stylesheet" href="app/css/bootstrapp.css"/>
   <link rel="stylesheet" href="app/css/animate.css">
   <link rel="stylesheet" href="app/css/hover.css">
+  <link rel="stylesheet" href="app/css/fileinput.css">
   <link rel="stylesheet" href="app/css/styles.css"/>
+  
   <script src="app/js/jquery.js"></script>
-    <script src="app/js/bootstrap.js"></script>
+  <script src="app/js/bootstrap.js"></script>
   <script src="app/js/fancybox.js"></script>
+  <script src="app/js/fileinput.js"></script>
+  <script src="app/js/fileinput_locale_es.js"></script>
   <script src="app/js/viewportchecker.js"></script>
 
   <script src="app/js/bootbox.js"></script>

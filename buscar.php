@@ -10,6 +10,8 @@
 <?php
 $s1 = @$_POST['s_nombres_completos'];
 $s2 = @$_POST['s_dni_cliente'];
+$s3 = @$_POST['s_fecha_ahora'];
+$s4 = @$_POST['s_fecha_luego'];
 ?>
 
 		<div class="container sinpa">
@@ -26,11 +28,11 @@ $s2 = @$_POST['s_dni_cliente'];
 				
 				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
 					<p class=" sinpa col-md-3 col-xs-12">Fecha de Inicio</p>
-					<input type="text" disabled="true" name="fechaini" id="fechaini" value="23/03/2016" class="col-xs-12 col-md-9" >
+					<input type="text" disabled="true" name="fechaini" id="fechaini" value="<?php echo $s3; ?>" class="col-xs-12 col-md-9" >
 				</div>
 				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
 					<p class=" sinpa col-md-3 col-xs-12">Fecha de Fin</p>
-					<input type="text" disabled="true" name="fechafin" id="fechafin" value="23/03/2017" class="col-xs-12 col-md-9" >
+					<input type="text" disabled="true" name="fechafin" id="fechafin" value="<?php echo $s4; ?>" class="col-xs-12 col-md-9" >
 				</div>
 			</form>
 		</div>
