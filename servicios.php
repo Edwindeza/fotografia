@@ -11,6 +11,7 @@
 $v1 = @$_POST['i_nombres_completos'];
 $v2 = @$_POST['i_dni_cliente'];
 $v3 = @$_POST['i_tipo_documento'];
+$v4 = @$_POST['i_nombre_servicio'];
 
 
 ?>
@@ -60,8 +61,17 @@ $(window).ready(function(){
 					<input disabled="true" name="dni" id="dni" type="text" readonly value="<?php echo $v2; ?>" class="col-xs-12 col-md-9" >
 				</div>
 				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
-					<p class="sinpa col-md-3 col-xs-12">Local</p>
-					<input disabled="true" name="local" id="dni" type="text" value="<?php echo $v3; ?>" class="col-xs-12 col-md-9" >
+					<p class="sinpa col-md-3 col-xs-12">Tipo de servicio</p>
+					<input disabled="true" name="dni" id="dni" type="text" readonly value="<?php echo $v4; ?>" class="col-xs-12 col-md-9" >
+				</div>
+				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
+					<p class="sinpa col-md-3 col-xs-12">Locación</p>
+					<tr><td><select name='locacion' style="width:75%;height: 27px;"> 
+                		<option value='interno'>Interno</option>
+                		<option value='externo'>Externo</option> 
+                		</select>
+                	</td></tr>
+					<!--input disabled="true" name="local" id="dni" type="text" value="<?php echo $v3; ?>" class="col-xs-12 col-md-9" -->
 				</div>
 				<div class=" col-xs-12 individual_opciones col-md-6 input-content sinpa_sm">
 					<p class="sinpa col-md-3 col-xs-12">Personal o Grupal</p>

@@ -103,19 +103,18 @@
 						</div>
 	          		</div> <!-- Falta enviar el dato del Opcion ( El value) -->
 					<div class=" col-xs-12 multiselec_service ">
-						<select id="i_tipo_documento" name="tipo"  class="col-xs-12">
-						    <option value="selecione_tipo_servicio">-- Seleccione el tipo de Servicio --</option>
+						    <h4><b>-- Seleccione el tipo de Servicio --</b></h4><br>
 						    <?php 
-						    	$
 						    	$sql="SELECT * FROM tipo_servicios";
 						    	$result = mysqli_query($db,$sql);
 		   						while($row = mysqli_fetch_array( $result)) {
-							?>	   
-		   					<option id="" value="<?php echo $row["id"];?>"><?php echo $row["nombre"]; ?></option>
+							?>
+							<input name="i_nombre_servicio" id="i_nombre_servicio" type="radio"  value="<?php echo $row["nombre"];?>"/> <?php echo $row["nombre"];?> <br/>	
 							<?php    				
 		   						}
+
 					     	?>
-						</select>
+	                		
 					</div>
 
 					<a data-dismiss="modal" class="btn_atras">Atrás</a>
@@ -234,7 +233,7 @@
 						    $result = mysqli_query($db,$sql);
 
 				    		$_nombre=@$_POST["nombre"];
-				    		if($_nombre){
+				    		if($_nombre != ""){
 				    			$_var = preg_replace(
 							        array("/ +/","/\t+/","/\n+/","/\r+/"),
 							        array(" ","","",""),
@@ -252,6 +251,8 @@
 										$sql.= " ) ";
 									} 
 								}
+				    		} else {
+				    			$sql.= " AND '".$_nombre."'!=0";
 				    		}
 						    $result = mysqli_query($db,$sql);
 
