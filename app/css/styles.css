@@ -137,6 +137,32 @@ button{
     padding: 10px;
     border-radius: 5px
 }
+#agregarServicio .modal-footer input{
+	color: #efb309 !important;
+    background-color: #171714;
+    padding: 10px;
+    border-radius: 5px
+}
+.agregar_servicios_vista .input-content{
+	margin-bottom: 10px;
+}
+.agregar_servicios_vista{
+	padding-bottom: 50px;
+}
+.individual_opciones span{
+	margin-right: 20px
+}
+.file-input{
+    float: right;
+    width: 88%;
+}
+.subir_archivos p{
+    float: left;
+    width: 10%;
+}
+.btn_crear_servicio{
+	text-align: right;
+}
 #agregarServicio .modal-footer a{
 	color: #efb309 !important;
     background-color: #171714;
@@ -151,7 +177,13 @@ button{
     margin-left:10px;
 }
 #registrar_cliente .modal-body{
-	padding-bottom: 150px;
+	padding-bottom: 0px;
+}
+#registrar_cliente .modal-footer {
+  padding: 0px 20px 20px;
+  margin-top: 0px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
 }
 #registrar_cliente .input-content h4{
 	font-size: 18px;
@@ -284,7 +316,7 @@ imagen-inicio{
 	padding-bottom: 20px;
 }
 #agregarServicio .modal-body{
-	padding-bottom: 100px;
+	padding-bottom: 120px;
 }
 .multiselec_service select{
 	padding-top: 5px;
@@ -371,10 +403,27 @@ input[type="date"]{
 	border-top:0;
 	border-left: 0;
 }
-.vista_clientes button{
-	border: 0;
+#agregarServicio .modal-body .btn_atras,
+#agregarServicio .modal-body .btn_siguiente {
+	margin-top: 30px;
 	background-color: black;
 	color: #efb309;
+	padding: 6px;
+	border-radius:5px;
+}
+#buscarCliente .modal-footer{
+	    margin-top: 42px;
+}
+#buscarCliente .modal-body .btn_atras,
+#buscarCliente .modal-body .btn_siguiente {
+	margin-top: 30px;
+	background-color: black;
+	color: #efb309;
+	padding: 6px;
+	border-radius:5px;
+}
+
+.vista_clientes button{
 }
 .vista_clientes h1{
 	margin-top: 0;
@@ -383,7 +432,7 @@ input[type="date"]{
 }
 
 
-.buscador_cliente a{
+.buscador_cliente input.buscador_cliente_submit{
 	color: #efb309 !important;
     background-color: #171714;
     padding: 6px;
@@ -472,4 +521,9 @@ input[type="date"]{
 @media (min-width: 1248px){
 
 
+}
+
+.subir_archivos{
+	margin-top: 15px;
+	width: 100%;
 }

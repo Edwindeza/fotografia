@@ -5,27 +5,34 @@
 </head>
 <body>
 <?php include 'tpl/header.php'; ?>
-	
 	<div class="col-xs-12 buscador">
+
+<?php
+$s1 = @$_POST['s_nombres_completos'];
+$s2 = @$_POST['s_dni_cliente'];
+$s3 = @$_POST['s_fecha_ahora'];
+$s4 = @$_POST['s_fecha_luego'];
+?>
+
 		<div class="container sinpa">
 			<h1>Buscador</h1>
 			<form action="">
 				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
 					<p class="sinpa col-md-3 col-xs-12">Nombre completo</p>
-					<input name="nombre" id="nombre" type="text" disabled="true" value="Edwin Junior Deza Culque" class="col-xs-12 col-md-9" >
+					<input name="nombre" id="nombre" type="text" readonly value="<?php echo $s1; ?>" class="col-xs-12 col-md-9" >
 				</div>
 				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
 					<p class="sinpa col-md-3 col-xs-12">DNI</p>
-					<input name="dni" id="dni" type="text" disabled="true" value="71834023" class="col-xs-12 col-md-9" >
+					<input name="dni" id="dni" type="text" readonly value="<?php echo $s2; ?>" class="col-xs-12 col-md-9" >
 				</div>
 				
 				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
 					<p class=" sinpa col-md-3 col-xs-12">Fecha de Inicio</p>
-					<input type="text" disabled="true" name="fechaini" id="fechaini" value="23/03/2016" class="col-xs-12 col-md-9" >
+					<input type="text" disabled="true" name="fechaini" id="fechaini" value="<?php echo $s3; ?>" class="col-xs-12 col-md-9" >
 				</div>
 				<div class=" col-xs-12 col-md-6 input-content sinpa_sm">
 					<p class=" sinpa col-md-3 col-xs-12">Fecha de Fin</p>
-					<input type="text" disabled="true" name="fechafin" id="fechafin" value="23/03/2017" class="col-xs-12 col-md-9" >
+					<input type="text" disabled="true" name="fechafin" id="fechafin" value="<?php echo $s4; ?>" class="col-xs-12 col-md-9" >
 				</div>
 			</form>
 		</div>
