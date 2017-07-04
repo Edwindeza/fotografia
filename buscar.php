@@ -37,6 +37,9 @@ $s4 = @$_POST['s_fecha_luego'];
 			</form>
 		</div>
 	</div>
+
+
+	<!-- Falta el query de  los resultados!! -->
 	<div class="buscador-resultado">
 		<div class="container ">
 			<h2>Resultados</h2>

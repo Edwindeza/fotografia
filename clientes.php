@@ -66,7 +66,7 @@
 							<h4 style="float: left;" class="col-md-5"><b>Correo electrónico </b><span>:</span></h4>
 							<input type="email" class="col-md-6"  maxlength="20" name="correo_electronico" style="float: left;" id="correo_electronico" rows="1">
 						</div>
-						<input type="submit" name="registrar_usuario" value="Guardar datos">
+						<input id="registrar_usuario" type="submit" name="registrar_usuario" value="Guardar datos">
 					</form>
 					<br>
 			        </div>

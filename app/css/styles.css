@@ -403,6 +403,15 @@ input[type="date"]{
 	border-top:0;
 	border-left: 0;
 }
+
+.vista_clientes .modal  input#registrar_usuario{	
+	color: #efb309;
+	border-radius: 5px;
+	float: right;
+    background-color: #171714;
+    padding: 6px;
+}
+
 #agregarServicio .modal-body .btn_atras,
 #agregarServicio .modal-body .btn_siguiente {
 	margin-top: 30px;
